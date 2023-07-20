@@ -20,7 +20,7 @@ const Login = () => {
           <span className="login_form_title">
               <img src={cbmpa} alt="cbmpa" /><img src={dc} alt="dc" />
             </span>
-            <span className="login_form_title">Bem-vindo ao SisCob</span>
+            <span className="login_form_title">Bem-vindo ao SISCOB</span>
 
             <div className="wrap_input">
               <input className={email !== "" ? 'has_val input' : 'input'} 
