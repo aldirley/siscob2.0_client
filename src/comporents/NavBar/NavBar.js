@@ -1,12 +1,14 @@
 import { NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import { useContext } from 'react'
 
 import styles from './NavBar.module.css'
+
+import { AuthContexts } from '../../contexts/AuthContexts'
 
 const NavBar = () => {
 
 
-  const [logged, setLogged ] = useState (false)
+  const { authenticated: logged} = useContext(AuthContexts)
 
 
   return (
