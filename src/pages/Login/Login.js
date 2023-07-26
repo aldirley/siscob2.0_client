@@ -11,7 +11,7 @@ import dc from '../../img/dc.png'
 
 const Login = () => {
 
-  const [email, setEmail]       = useState("")
+  const [user, setUser]         = useState("")
   const [password, setPassword] = useState("")
 
 
@@ -19,8 +19,8 @@ const Login = () => {
 
   const handleSubmit = (e) =>{
     e.preventDefault();
-    console.log("submit", {email, password})
-    login(email,password); //chamando a função através do contexto
+    console.log("submit", {user, password})
+    login(user,password); //chamando a função através do contexto
   }
 
   return (
@@ -35,11 +35,11 @@ const Login = () => {
             <span className="login_form_title">Bem-vindo ao SISCOB</span>
             {/* <p>{String(authenticated)}</p> */}
             <div className="wrap_input">
-              <input className={email !== "" ? 'has_val input' : 'input'} 
-                     type="email"
-                     value={email} 
-                     onChange={(e) => setEmail(e.target.value)} />
-              <span className="focus_input" data-placeholder="E-mail"></span>
+              <input className={user !== "" ? 'has_val input' : 'input'} 
+                     type="text"
+                     value={user} 
+                     onChange={(e) => setUser(e.target.value)} />
+              <span className="focus_input" data-placeholder="Usuário"></span>
             </div>
 
             <div className="wrap_input">

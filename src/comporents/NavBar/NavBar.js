@@ -8,7 +8,12 @@ import { AuthContexts } from '../../contexts/AuthContexts'
 const NavBar = () => {
 
 
-  const { authenticated: logged} = useContext(AuthContexts)
+  const { authenticated: logged, logout} = useContext(AuthContexts)
+
+  const handleLogout = () =>{
+
+    logout();
+  }
 
 
   return (
@@ -32,6 +37,12 @@ const NavBar = () => {
           {logged  &&  "Relatórios" } 
           </NavLink>
         </li>
+        <li>
+          <NavLink onClick={handleLogout} >
+            {logged && "Sair" }
+          </NavLink>
+        </li>
+        
       </ul>
     </nav>
   )
