@@ -17,9 +17,9 @@ const Login = () => {
 
   const { login } = useContext(AuthContexts)
 
-  const handleSubmit = (e) =>{
+  const handleSubmit =  (e) =>{
     e.preventDefault();
-    console.log("submit", {user, password})
+    //console.log("submit", {user, password})
     login(user,password); //chamando a função através do contexto
   }
 
@@ -33,7 +33,6 @@ const Login = () => {
               <img src={cbmpa} alt="cbmpa" /><img src={dc} alt="dc" />
             </span>
             <span className="login_form_title">Bem-vindo ao SISCOB</span>
-            {/* <p>{String(authenticated)}</p> */}
             <div className="wrap_input">
               <input className={user !== "" ? 'has_val input' : 'input'} 
                      type="text"

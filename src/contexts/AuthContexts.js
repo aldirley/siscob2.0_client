@@ -10,15 +10,19 @@ export const AuthProvider = ({children}) => {
     const navigate = useNavigate();
 
     const [user, setUser]               = useState(null)
-    const [ authorized, setAuthorized ] = useState()
+   // const [ authorized, setAuthorized ] = useState("")
 
     const baseAPI = 'http://localhost:3001'
-    
+
+      
 
     const login = (user, password) => {
-       
+
+
         const usr = user;
         const pwd = password 
+
+        let authorized 
 
         const codCredenciais = btoa(`${usr}:${pwd}`)
 
@@ -26,27 +30,40 @@ export const AuthProvider = ({children}) => {
             headers: {
               Authorization: `Basic ${codCredenciais}`,
             },
-          }).then((response) =>{
-            console.log(response.data.length)
-            setAuthorized(response.data.length)
-        }).catch(   (error) => {
-            console.error('Erro:', error)
-        })
 
-        //console.log('Auth', {user,password})
-        if(authorized !== 0){
+          }).then((response) =>{
+            authorized = parseInt(response.data.length)
+         //console.log('response', authorized)
+         if(authorized > 0) {
 
             setUser({id:'123', user})
             navigate("/home")
         }
+           
+        }).catch(   (error) => {
+            console.error('Erro:', error)
+        })
+
+       console.log('Auth', authorized)
+
+        // if(authorized > 0) {
+
+        //     setUser({id:'123', user})
+        //     navigate("/home")
+        // }
     }
 
-
+    
     const logout  = () => {
       console.log('logout!!!')
       setUser(null)
+      //setAuthorized(null)
       navigate('/')
+     
     }
+        
+
+  //  console.log(authorized)
     return(
         <AuthContexts.Provider value={{authenticated: !!user, user, login, logout}}>
             {children}
