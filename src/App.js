@@ -18,6 +18,9 @@ import { AuthProvider, AuthContexts } from './contexts/AuthContexts';
 //pages
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
+import Cadastros from './pages/Cadastros/Cadastros'
+import Consultas from './pages/Consultas/Consultas'
+import Relatorios from './pages/Relatorios/Relatorios'
 
 
 
@@ -43,6 +46,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Login/>}/>
           <Route path='/home' element={<Private><Home/> </Private>} />
+          <Route path='/cadastros' element={<Private><Cadastros /> </Private>} />
+          <Route path='/consultas' element={<Private><Consultas /> </Private>} />
+          <Route path='/relatorios' element={<Private><Relatorios /> </Private>} />
         </Routes>
       </div>
       <Footer />

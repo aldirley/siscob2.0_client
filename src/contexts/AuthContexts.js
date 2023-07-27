@@ -44,20 +44,13 @@ export const AuthProvider = ({children}) => {
             console.error('Erro:', error)
         })
 
-       console.log('Auth', authorized)
-
-        // if(authorized > 0) {
-
-        //     setUser({id:'123', user})
-        //     navigate("/home")
-        // }
+      
     }
 
     
     const logout  = () => {
       console.log('logout!!!')
       setUser(null)
-      //setAuthorized(null)
       navigate('/')
      
     }
